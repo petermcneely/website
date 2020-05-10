@@ -8,67 +8,70 @@ import { AuthUserContext } from '../Session';
 const Navigation = () => (
   <nav className="navbar navbar-default navbar-fixed-top">
     <div className="container">
-    <div className="navbar-header">
-        <button type="button" className="navbar-toggle">
+      <div className="navbar-header">
+        <button
+          type="button"
+          className="navbar-toggle"
+          data-toggle="collapse"
+          data-target=".navbar-collapse"
+          aria-controls="theNavBar"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
             <span className="sr-only">Toggle navigation</span>
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
         </button>
-        </div>
-      <div className="navbar-collapse collapse">
+      </div>
+    </div>
+    <div id="theNavBar" className="navbar-collapse collapse">
         <AuthUserContext.Consumer>
           {authUser => 
             authUser ? <NavigationAuth /> : <NavigationUnAuth />
           }
         </AuthUserContext.Consumer>
       </div>
-    </div>
   </nav>
 );
 
 const NavigationAuth = () => (
-  <div className="navbar-collapse collapse">
-    <ul className="nav navbar-nav">
-      <li>
+  <ul className="nav navbar-nav">
+      <li className="nav-item">
         <Link to={ROUTES.HOME}>Home</Link>
       </li>
-      <li>
+      <li className="nav-item">
         <Link to={ROUTES.COVID_19}>COVID-19</Link>
       </li>
-      <li>
+      <li className="nav-item">
         <Link to={ROUTES.ABOUT}>About</Link>
       </li>
-      <li>
+      <li className="nav-item">
         <Link to={ROUTES.RESUME}>Resume</Link>
       </li>
-      <li>
+      <li className="nav-item">
         <Link to={ROUTES.POST_FORM}>Create Post</Link>
       </li>
-      <li>
+      <li className="nav-item">
         <SignOut />
       </li>
     </ul>
-  </div>
 );
 
 const NavigationUnAuth = () => (
-  <div className="navbar-collapse collapse">
-    <ul className="nav navbar-nav">
-      <li>
-        <Link to={ROUTES.HOME}>Home</Link>
-      </li>
-      <li>
-        <Link to={ROUTES.COVID_19}>COVID-19</Link>
-      </li>
-      <li>
-        <Link to={ROUTES.ABOUT}>About</Link>
-      </li>
-      <li>
-        <Link to={ROUTES.RESUME}>Resume</Link>
-      </li>
-    </ul>
-  </div>
+  <ul className="nav navbar-nav">
+    <li className="nav-item">
+      <Link to={ROUTES.HOME}>Home</Link>
+    </li>
+    <li className="nav-item">
+      <Link to={ROUTES.COVID_19}>COVID-19</Link>
+    </li>
+    <li className="nav-item">
+      <Link to={ROUTES.ABOUT}>About</Link>
+    </li>
+    <li className="nav-item">
+      <Link to={ROUTES.RESUME}>Resume</Link>
+    </li>
+  </ul>
 );
 
 export default Navigation;
