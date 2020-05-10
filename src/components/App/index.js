@@ -10,7 +10,7 @@ import SignInPage from '../SignIn';
 import AboutPage from '../About';
 import COVID19Page from '../COVID19';
 import ResumePage from '../Resume';
-import { PostDetail } from '../Post';
+import { PostDetail, PostForm } from '../Post';
 
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
@@ -24,6 +24,7 @@ const App = () => (
       <Route path={ROUTES.ABOUT} component={AboutPage} />
       <Route path={ROUTES.COVID_19} component={COVID19Page} />
       <Route path={ROUTES.RESUME} component={ResumePage} />
+      <Route path={`${ROUTES.POST_FORM}/:urlTitle?`} component={PostForm} />
       <Route exact path={`${ROUTES.POSTS}/:id`} component={PostDetail} />
     </div>
   </Router>

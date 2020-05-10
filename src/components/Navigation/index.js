@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import SignOutButton from '../SignOut';
+import SignOut from '../SignOut';
 import * as ROUTES from '../../constants/routes';
 import { AuthUserContext } from '../Session';
 
@@ -43,7 +43,10 @@ const NavigationAuth = () => (
         <Link to={ROUTES.RESUME}>Resume</Link>
       </li>
       <li>
-        <SignOutButton />
+        <Link to={ROUTES.POST_FORM}>Create Post</Link>
+      </li>
+      <li>
+        <SignOut />
       </li>
     </ul>
   </div>

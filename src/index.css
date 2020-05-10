@@ -17,12 +17,6 @@ code {
     monospace;
 }
 
-#picture {
-  height: 150px;
-  width: calc(150px * .75);
-  margin-bottom: 20px;
-}
-
 #resume {
   min-width: 570px;
   height: 100vh;

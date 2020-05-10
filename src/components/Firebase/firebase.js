@@ -2,6 +2,8 @@ import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
 
+import { manipulateForDatabase } from '../Post';
+
 const config = {
     apiKey: process.env.REACT_APP_API_KEY,
     authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -26,6 +28,27 @@ class Firebase {
         .orderByChild('urlTitle')
         .equalTo(url);
     posts = () => this.database.ref('posts');
+    validate = async post => {
+        const existingPost = (await this.post(post.urlTitle).once('value')).val();
+        if (existingPost && (!post.id || Object.keys(existingPost)[0] !== post.id)) {
+            throw new Error('A post with that url already exists');
+        }
+    }
+    updatePost = async post => {
+        await this.validate(post);
+        let updates = {};
+        const newPost = manipulateForDatabase(post);
+        updates[`/posts/${post.id}`] = newPost;
+        await this.database.ref().update(updates);
+    }
+    deletePost = async post => {
+        await this.database.ref(`/posts/${post.id}`).remove();
+    }
+    createPost = async post => {
+        await this.validate(post);
+        const newPost = manipulateForDatabase(post);
+        await this.database.ref("posts").push(newPost);
+    }
 
     comments = () => this.database.ref('comments');
 }

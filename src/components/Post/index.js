@@ -1,5 +1,13 @@
 import PostDetail from './detail';
 import PostListItem from './listItem';
-import { manipulateFromDatabase } from './util';
+import PostForm from './form';
+import { manipulateFromDatabase, manipulateForDatabase, hyphenate } from './util';
 
-export { PostDetail, PostListItem, manipulateFromDatabase }
+export { 
+  PostDetail,
+  PostListItem,
+  PostForm,
+  manipulateFromDatabase,
+  manipulateForDatabase,
+  hyphenate,
+}
