@@ -6,10 +6,10 @@ var fileServer = new(Server)('public', { cache: 7200 });
 createServer((request, response) => {
   fileServer.serve(request, response, (err, res) => {
     if (err && err.status === 404) {
-      if (request.url === '/resume.html' || request.url === '/resume') {
-        fileServer.serveFile('/resume.pdf', 200, {}, request, response);
+      if (request.url.toLowerCase() === '/resume.html' || request.url.toLowerCase() === '/resume') {
+        fileServer.serveFile('/Resume.pdf', 200, {}, request, response);
       }
-      else if (request.url === '/index') {
+      else if (request.url.toLowerCase() === '/index') {
         fileServer.serveFile('/index.html', 200, {}, request, response);
       }
       else {
