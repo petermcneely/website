@@ -1,5 +1,17 @@
 {
   "hosting": {
-    "public": "public"
+    "public": "public",
+    "rewrites": [
+      {
+        "regex": "[Rr]esume.html",
+        "destination": "Resume.pdf"
+      },
+      {
+        "regex": "[Rr]esume",
+        "destination": "Resume.pdf"
+      }
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false
   }
 }
