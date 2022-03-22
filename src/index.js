@@ -13,10 +13,10 @@ createServer((request, response) => {
         fileServer.serveFile('/index.html', 200, {}, request, response);
       }
       else {
-        fileServer.serveFile('/not-found.html', 404, {}, request, response);
+        fileServer.serveFile('/404.html', 404, {}, request, response);
       }
     } else if (err && err.status === 500) {
-      fileServer.serveFile('/error.html', 500, {}, request, response);
+      fileServer.serveFile('/500.html', 500, {}, request, response);
     }
   });
 }).listen(8080);
