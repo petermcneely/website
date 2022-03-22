@@ -21,3 +21,8 @@ code {
   margin: auto;
   text-align: center;
 }
+
+.img-extensions {
+  width: 50%;
+  margin: 2rem;
+}

@@ -3,20 +3,20 @@
     "public": "public",
     "rewrites": [
       {
-        "source": "Resume.html",
-        "destination": "Resume.pdf"
+        "source": "/Resume.html",
+        "destination": "/Resume.pdf"
       },
       {
-        "source": "resume.html",
-        "destination": "Resume.pdf"
+        "source": "/resume.html",
+        "destination": "/Resume.pdf"
       },
       {
-        "regex": "Resume",
-        "destination": "Resume.pdf"
+        "regex": "/Resume",
+        "destination": "/Resume.pdf"
       },
       {
-        "regex": "resume",
-        "destination": "Resume.pdf"
+        "regex": "/resume",
+        "destination": "/Resume.pdf"
       }
     ],
     "cleanUrls": true,
