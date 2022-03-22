@@ -3,11 +3,19 @@
     "public": "public",
     "rewrites": [
       {
-        "regex": "[Rr]esume.html",
+        "source": "Resume.html",
         "destination": "Resume.pdf"
       },
       {
-        "regex": "[Rr]esume",
+        "source": "resume.html",
+        "destination": "Resume.pdf"
+      },
+      {
+        "regex": "Resume",
+        "destination": "Resume.pdf"
+      },
+      {
+        "regex": "resume",
         "destination": "Resume.pdf"
       }
     ],
